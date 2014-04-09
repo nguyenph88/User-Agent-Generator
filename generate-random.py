@@ -1,14 +1,31 @@
+# agent.py
+# ------------
+# Licensing Information:  You are free to use or extend this class/project/file
+# for personal or educational purposes provided that:
+# 1. You do not re-distribute under other names.
+# 2. You retain this notice and include a link to its original source.
+# 3. You notice me if you want go use it for any other purposes.
+# 
+# Last modified: April 02, 2014 
+# Author: Peter Nguyen
+# nguyenph88@gmail.com | nguyenphuoc.net | github.com/nguyenph88
+#
+# Agent.py : create a random agent to manipulate the http header when sending
+#            a request to a website.
+#------------------------------------------------------------------------------------
+
+
 import datetime
 import random
  
-def getUserAgent():
+def genUserAgent():
     platform = random.choice(['Macintosh', 'Windows', 'X11'])
     if platform == 'Macintosh':
-        os  = random.choice(['68K', 'PPC'])
+        os = random.choice(['68K', 'PPC'])
     elif platform == 'Windows':
-        os  = random.choice(['Win3.11', 'WinNT3.51', 'WinNT4.0', 'Windows NT 5.0', 'Windows NT 5.1', 'Windows NT 5.2', 'Windows NT 6.0', 'Windows NT 6.1', 'Windows NT 6.2', 'Win95', 'Win98', 'Win 9x 4.90', 'WindowsCE'])
+        os = random.choice(['Win3.11', 'WinNT3.51', 'WinNT4.0', 'Windows NT 5.0', 'Windows NT 5.1', 'Windows NT 5.2', 'Windows NT 6.0', 'Windows NT 6.1', 'Windows NT 6.2', 'Win95', 'Win98', 'Win 9x 4.90', 'WindowsCE'])
     elif platform == 'X11':
-        os  = random.choice(['Linux i686', 'Linux x86_64'])
+        os = random.choice(['Linux i686', 'Linux x86_64'])
     browser = random.choice(['chrome', 'firefox', 'ie'])
     if browser == 'chrome':
         webkit = str(random.randint(500, 599))
@@ -39,6 +56,3 @@ def getUserAgent():
         else:
             token = ''
         return 'Mozilla/5.0 (compatible; MSIE ' + version + '; ' + os + '; ' + token + 'Trident/' + engine + ')'
-
-# Testing
-print getUserAgent()
